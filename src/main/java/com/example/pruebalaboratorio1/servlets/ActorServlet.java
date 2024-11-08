@@ -27,10 +27,23 @@ public class ActorServlet extends HttpServlet {
 
         peliculaDao peliculaDao = new peliculaDao();
         ArrayList<pelicula> listaPeliculas = peliculaDao.listarPeliculas();
-        pelicula movie = (pelicula) listaPeliculas.get(idPelicula-1);
-        request.setAttribute("pelicula", movie);
+
+        pelicula movie = null;
+        for (pelicula p : listaPeliculas) {
+            if (p.getIdPelicula() == idPelicula) {
+                movie = p;
+                break;
+            }
+        }
+
+        if (movie != null) {
+            request.setAttribute("pelicula", movie);
+        } else {
+            // Manejar el caso donde la película no se encuentra
+            request.setAttribute("error", "Película no encontrada");
+        }
 
         RequestDispatcher view = request.getRequestDispatcher("actores.jsp");
-        view.forward(request,response);
+        view.forward(request, response);
     }
 }

@@ -3,4 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+    <servlet>
+        <servlet-name>peliculaServlet</servlet-name>
+        <servlet-class>com.example.pruebalaboratorio1.servlets.PeliculaServlet</servlet-class>
+    </servlet>
+
+    <!-- Map the PeliculaServlet to a URL -->
+    <servlet-mapping>
+        <servlet-name>peliculaServlet</servlet-name>
+        <url-pattern>/listarPeliculas</url-pattern>
+    </servlet-mapping>
+
+    <!-- Set the default welcome file to trigger the servlet -->
+    <welcome-file-list>
+        <welcome-file>listarPeliculas</welcome-file>
+    </welcome-file-list>
 </web-app>

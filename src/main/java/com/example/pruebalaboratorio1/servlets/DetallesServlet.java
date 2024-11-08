@@ -1,11 +1,7 @@
 package com.example.pruebalaboratorio1.servlets;
 
-import com.example.pruebalaboratorio1.beans.genero;
 import com.example.pruebalaboratorio1.beans.pelicula;
-import com.example.pruebalaboratorio1.beans.streaming;
 import com.example.pruebalaboratorio1.daos.detallesDao;
-import com.example.pruebalaboratorio1.daos.listasDao;
-import com.example.pruebalaboratorio1.daos.peliculaDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "detalle-servlet", value = "/viewPelicula")
 public class DetallesServlet extends HttpServlet {

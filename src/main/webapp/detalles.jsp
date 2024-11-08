@@ -1,16 +1,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.example.pruebalaboratorio1.beans.pelicula"%>
 <%@page import="java.text.NumberFormat"%>
-<%@ page import="com.example.pruebalaboratorio1.beans.genero" %>
-<%@ page import="com.example.pruebalaboratorio1.beans.streaming" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-
     pelicula movie = (pelicula) request.getAttribute("pelicula");
-    String searchTerm = request.getParameter("searchTerm");
-    NumberFormat formatter = NumberFormat.getInstance();
-    //ArrayList<genero> listaGeneros = (ArrayList) request.getAttribute("listaGeneros");
-    //ArrayList<streaming> listaStreaming = (ArrayList) request.getAttribute("listaStreaming");
 %>
 <!DOCTYPE html>
 <html>
@@ -56,18 +49,11 @@
                 <input name="boxOffice" value="<%=movie.getBoxOffice()%>">
             </td>
         </tr>
-        <tr>
-            <th>Genero</th>
-            <td contenteditable>
-                <input name="Genero" value="<%=movie.getGenero()%>">
-            </td>
-        </tr>
-        <tr>
             <th>Actores</th>
             <td><a href="listaActores?idPelicula=<%= movie.getIdPelicula() %>">Ver Actores</a></td>
         </tr>
         <input type="hidden" name="action" value="editar">
-        <button type="submit">Editar Pelicula</button>
+        <button type="submit">Guardar Pelicula</button>
     </form>
 </table>
 

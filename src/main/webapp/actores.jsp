@@ -1,11 +1,8 @@
-
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.example.pruebalaboratorio1.beans.actor"%>
 <%@ page import="com.example.pruebalaboratorio1.beans.pelicula" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    //Job job = (Job) request.getAttribute("job");
     ArrayList<actor> lista = (ArrayList) request.getAttribute("listaActores");
     pelicula movie = (pelicula) request.getAttribute("pelicula");
 %>
@@ -17,15 +14,14 @@
 </head>
 <body>
 
-<h1>Actores de: <%=movie.getTitulo()%></h1>
+<h1><%=movie.getTitulo()%></h1>
 <table border="1">
     <tr>
         <th>idActor</th>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Ano Nacimiento</th>
+        <th>Año Nacimiento</th>
         <th>Ganador Premio Oscar</th>
-
     </tr>
     <%
         for (actor actuador : lista) {
@@ -36,14 +32,18 @@
         <td><%=actuador.getApellido()%></td>
         <td><%=actuador.getAnoNacimiento()%></td>
         <td><%=actuador.isPremioOscar()%></td>
-
-
     </tr>
-
     <%
         }
     %>
-
 </table>
+
+<!-- Botón para Crear Actor -->
+<form action="crearActor.jsp" method="GET">
+    <input type="hidden" name="idPelicula" value="<%=movie.getIdPelicula()%>">
+    <input type="hidden" name="tituloPelicula" value="<%=movie.getTitulo()%>">
+    <button type="submit">Crear Actor</button>
+</form>
+
 </body>
 </html>
